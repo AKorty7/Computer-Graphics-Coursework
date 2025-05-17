@@ -7,16 +7,17 @@ glm::mat4 Maths::translate(const glm::vec3& v)
 
     return translate;
 }
+
 glm::mat4 Maths::scale(const glm::vec3& v)
 {
     glm::mat4 scale(1.0f);
     scale[0][0] = v.x; scale[1][1] = v.y; scale[2][2] = v.z;
     return scale;
 }
+
 float Maths::radians(float angle) {
     return angle * 3.1416f / 180.0f;
 }
-
 
 glm::mat4 Maths::rotate(const float& angle, glm::vec3 v)
 {
@@ -38,6 +39,7 @@ Quaternion::Quaternion(const float w, const float x, const float y, const float 
     this->y = y;
     this->z = z;
 }
+
 glm::mat4 Quaternion::matrix()
 {
     float s = 2.0f / (w * w + x * x + y * y + z * z);
@@ -59,6 +61,7 @@ glm::mat4 Quaternion::matrix()
 
     return rotate;
 }
+
 Quaternion::Quaternion(const float pitch, const float yaw)
 {
     float cosPitch = cos(0.5f * pitch);
@@ -71,6 +74,7 @@ Quaternion::Quaternion(const float pitch, const float yaw)
     this->y = cosPitch * sinYaw;
     this->z = sinPitch * sinYaw;
 }
+
 // SLERP
 Quaternion Maths::SLERP(Quaternion q1, Quaternion q2, const float t)
 {
