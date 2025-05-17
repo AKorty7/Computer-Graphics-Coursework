@@ -1,38 +1,32 @@
 #pragma once
 
-#include<iostream>
-#include<cmath>
-#include<glm/glm.hpp>
-#include<glm/gtx/io.hpp>
-
-
+#include <iostream>
+#include <cmath>
+#include <glm/glm.hpp>
+#include <glm/gtx/io.hpp>
 
 // Quaternion class
 class Quaternion
 {
 public:
-	float w, x, y, z;
+    float w, x, y, z;
 
-	glm::mat4 matrix();
+    glm::mat4 matrix();
 
-
-	// Constructors
-	Quaternion();
-	Quaternion(const float w, const float x, const float y, const float z);
-	Quaternion(const float pitch, const float yaw);
+    // Constructors
+    Quaternion();
+    Quaternion(const float w, const float x, const float y, const float z);
+    Quaternion(const float pitch, const float yaw);
 };
-//maths class
-class Maths {
 
+// Maths namespace
+namespace Maths
+{
+    // Transformation matrices
+    glm::mat4 translate(const glm::vec3& v);
+    glm::mat4 scale(const glm::vec3& v);
+    float radians(float angle);
+    glm::mat4 rotate(const float& angle, glm::vec3 v);
 
-public:
-	//transformation matrices
-	static glm::mat4 translate(const glm::vec3& v);
-	static glm::mat4 scale(const glm::vec3& v);
-	static float radians(float angle);
-	static glm::mat4 rotate(const float& angle, glm::vec3 v);
-
-
-	static Quaternion SLERP(const Quaternion q1, const Quaternion q2, const float t);
-
-};
+    Quaternion SLERP(const Quaternion q1, const Quaternion q2, const float t);
+}
