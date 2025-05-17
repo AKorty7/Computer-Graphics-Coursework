@@ -45,6 +45,7 @@ add_executable(Computer_Graphics_Coursework
 	source/fragmentShader.glsl
 
 	common/shader.hpp
+        common/shader.cpp
 	common/texture.hpp
 	common/stb_image.hpp
 	common/maths.hpp
